@@ -32,7 +32,8 @@ from boruta import BorutaPy
 from numpy import absolute
 from numpy import mean
 from numpy import std
-
+import warnings
+st.set_option('deprecation.showPyplotGlobalUse', False)
 Image.open('mmu_logo.png').convert('RGB').save('mmu_logo.png')
 im = Image.open("mmu_logo.png")
 st.image(im, width=300)
@@ -140,6 +141,7 @@ st.markdown("State Cases")
 state = df_caseState.groupby('state')
 state.boxplot(figsize=(15,15))
 st.pyplot()
+warnings.filterwarnings("ignore")
 
 # ### Exploratory Data Analysis
 st.subheader("Exploratory Data Analysis")
